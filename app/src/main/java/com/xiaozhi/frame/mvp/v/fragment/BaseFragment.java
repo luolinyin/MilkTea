@@ -52,19 +52,13 @@ public abstract class BaseFragment extends BaseListennerFragment {
     @Override
     public void onStop() {
 
-        if (requestManage != null) {
-            requestManage.cancelRequest();
-        }
+  
         super.onStop();
     }
 
     // 删除控件
     @Override
     public void onDestroy() {
-
-        if (requestManage != null) {
-            requestManage.cancelRequest();
-        }
 
         mImageLoader.clearMemoryCache();
 
@@ -81,13 +75,13 @@ public abstract class BaseFragment extends BaseListennerFragment {
         Intent intent = new Intent(context, targetActivity);
         startActivity(intent);
     }
+
     /*
         * 每个activity都有一个请求管理器
         * */
     public HttpRequestManage getRequestManage() {
         return requestManage;
     }
-
 
 
 }

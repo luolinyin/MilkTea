@@ -84,7 +84,7 @@
             android:layout_marginLeft="30px"
             android:layout_marginRight="100px"
             android:layout_marginTop="30px"
-            android:inputType="phone" />
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <TextView

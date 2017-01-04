@@ -48,17 +48,12 @@ public abstract class BaseActivity extends BaseListennerActivity {
     public void onStop() {
         super.onStop();
 
-        if (requestManage != null) {
-            requestManage.cancelRequest();
-        }
-        super.onStop();
+
            }
 
     @Override
     public void onDestroy() {
-        if (requestManage != null) {
-            requestManage.cancelRequest();
-        }
+
         super.onDestroy();
     }
 
