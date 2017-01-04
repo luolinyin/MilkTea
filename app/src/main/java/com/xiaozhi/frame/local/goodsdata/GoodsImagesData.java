@@ -5,4 +5,6 @@ package com.xiaozhi.frame.local.goodsdata;
  */
 
 public class GoodsImagesData {
+
+
 }

@@ -9,9 +9,9 @@ import com.xiaozhi.frame.mvp.m.callbackmanage.RequestCallBack;
  * Created by Fynner on 2017/1/2.
  */
 
-public class GoodsDataModle extends BaseModel {
+public class GoodsDataManageM extends BaseModel {
 
-    public GoodsDataModle(Context context, RequestCallBack requestCallBack) {
+    public GoodsDataManageM(Context context, RequestCallBack requestCallBack) {
         super(context, requestCallBack);
     }
 

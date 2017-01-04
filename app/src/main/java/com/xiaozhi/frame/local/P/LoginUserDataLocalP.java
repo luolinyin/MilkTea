@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 import com.xiaozhi.frame.action.SignAction;
 import com.xiaozhi.frame.local.manage.LocalDataManage;
 import com.xiaozhi.frame.local.manage.UserDataLocalManage;
-import com.xiaozhi.frame.local.modle.UserDataLocalManageM;
+import com.xiaozhi.frame.local.modle.UserDataManageM;
 import com.xiaozhi.frame.local.userdata.CzyData;
 import com.xiaozhi.frame.local.userdata.LoginReturnData;
 import com.xiaozhi.frame.local.userdata.UserData;
@@ -28,7 +28,7 @@ public class LoginUserDataLocalP implements RequestCallBack {
     private UserDataLocalManage userDataLocalManage;
     private UserDataLocalManage.OnUserDataLoginSuccessListenner onUserDataLoginSuccessListenner;
 
-    private UserDataLocalManageM userDataLocalManageM;
+    private UserDataManageM userDataNetManageM;
 
     private Handler handler;
 
@@ -38,7 +38,7 @@ public class LoginUserDataLocalP implements RequestCallBack {
         this.baseActivity = baseActivity;
         this.userData = userData;
         this.onUserDataLoginSuccessListenner = onUserDataLoginSuccessListenner;
-        userDataLocalManageM = new UserDataLocalManageM(baseActivity, this);
+        userDataNetManageM = new UserDataManageM(baseActivity, this);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class LoginUserDataLocalP implements RequestCallBack {
         });
 
 
-        userDataLocalManageM.login(shopid, czyid, passwork, action);
+        userDataNetManageM.login(shopid, czyid, passwork, action);
     }
 
     /**

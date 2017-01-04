@@ -17,10 +17,10 @@ import java.util.ArrayList;
  * Created by lenovo on 2016/11/30.
  */
 
-public class UserDataLocalManageM extends BaseModel {
+public class UserDataManageM extends BaseModel {
     private BaseActivity baseActivity;
 
-    public UserDataLocalManageM(BaseActivity baseActivity, RequestCallBack requestCallBack) {
+    public UserDataManageM(BaseActivity baseActivity, RequestCallBack requestCallBack) {
         super(baseActivity, requestCallBack);
 
         this.baseActivity = baseActivity;

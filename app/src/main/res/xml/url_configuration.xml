@@ -12,6 +12,12 @@
         CacheTime="0"
         Key="login"
         NetType="post"
-        Url="user.htm" />
+        Url="user.htm" /> <!--登录-->
+
+    <Node
+        CacheTime="0"
+        Key="query"
+        NetType="post"
+        Url="product.htm" /><!--获取商品数据-->
 
 </url>
