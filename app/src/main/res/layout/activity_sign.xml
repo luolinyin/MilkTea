@@ -24,17 +24,71 @@
             android:textSize="50px" />
 
         <EditText
+            android:id="@+id/sign_shop_id"
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:layout_marginBottom="100px"
+            android:layout_marginBottom="30px"
             android:layout_marginLeft="30px"
             android:layout_marginRight="100px"
-            android:layout_marginTop="100px"
+            android:layout_marginTop="30px"
             android:inputType="phone" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50px"
+            android:text="工号:"
+            android:textSize="50px" />
+
+        <EditText
+            android:id="@+id/sign_czy_id"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="100px"
+            android:layout_marginTop="30px"
+            android:inputType="phone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50px"
+            android:text="密码:"
+            android:textSize="50px" />
+
+        <EditText
+            android:id="@+id/sign_password"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="100px"
+            android:layout_marginTop="30px"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/sign_sign"
+        android:id="@+id/sign_login"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="5dp"

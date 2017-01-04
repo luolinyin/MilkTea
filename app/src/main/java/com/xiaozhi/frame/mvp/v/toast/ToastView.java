@@ -112,7 +112,7 @@ public class ToastView {
         }
     }
 
-    public static void cancel() {
+    public  void cancel() {
         if (mToast != null) {
             mToast.cancel();
             mToast = null;

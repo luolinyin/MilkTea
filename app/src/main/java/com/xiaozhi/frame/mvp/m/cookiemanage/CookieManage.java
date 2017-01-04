@@ -3,6 +3,7 @@ package com.xiaozhi.frame.mvp.m.cookiemanage;
 
 
 import com.xiaozhi.frame.configuration.Configuration;
+import com.xiaozhi.frame.configuration.PathManage;
 import com.xiaozhi.frame.tool.file.FileManage;
 
 import org.apache.http.cookie.Cookie;
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by Fynner on 2016/11/23.
  */
 public class CookieManage {
-    private String COOKIE_PATH = Configuration.COOKIE_PHAT;
+    private String COOKIE_PATH = PathManage.COOKIE_PHAT;
 
     /**
      * cookie列表保存到本地

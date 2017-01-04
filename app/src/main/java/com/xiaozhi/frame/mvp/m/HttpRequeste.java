@@ -8,6 +8,7 @@ import com.xiaozhi.frame.mvp.m.callbackmanage.HttpRequestCallBack;
 import com.xiaozhi.frame.mvp.m.cookiemanage.CookieManage;
 import com.xiaozhi.frame.mvp.m.urlmanage.UrlData;
 import com.xiaozhi.frame.mvp.m.urlmanage.UrlSplice;
+import com.xiaozhi.frame.tool.print.Print;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -96,6 +97,7 @@ public class HttpRequeste implements Runnable {
             newUrl = UrlSplice.spliceUrlGet(url, parameters);//拼接url
             request = new HttpGet(newUrl);
         } else if (urlData.getNetType().equals(REQUEST_POST)) {
+           
             request = new HttpPost(url);
 
             List<BasicNameValuePair> basicParameters = UrlSplice.spliceUrlPost(parameters);
@@ -108,25 +110,33 @@ public class HttpRequeste implements Runnable {
         } else {
             return;
         }
+
         request.getParams().setParameter(
                 CoreConnectionPNames.CONNECTION_TIMEOUT, 30000);
         request.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 30000);
         //添加相关请求头信息
         setHttpHeaders(request);
         //添加cookie
+
         if (Configuration.IS_COOKIE) {
             httpClient = cookieManage.addCookie(httpClient);
         }
+
         //发送请求
         try {
+
             response = httpClient.execute(request);
         } catch (IOException e) {
             handleHttpfail("网络异常");
         }
         //请求回调数据处理。
+
         if (response != null) {
             int statusCode = response.getStatusLine().getStatusCode();
+
             if (statusCode == HttpStatus.SC_OK) {
+
+
                 if (callBack == null) return;//说明不需要回调
                 strResponse = manageResponse();
             } else {

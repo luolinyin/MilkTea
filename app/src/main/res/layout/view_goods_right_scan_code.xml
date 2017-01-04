@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300px"
+    android:padding="5px">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_goods_grid_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#575757"
+            android:layout_marginTop="10px"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10px"
+            android:text="扫码下载手机上传助手"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25px"
+            android:src="@mipmap/test_code"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#48B1A3"
+            android:layout_gravity="center_horizontal"
+            android:textSize="14px"
+            android:layout_marginBottom="20px"
+            android:text="上传产品"/>
+
+    </LinearLayout>
+
+</LinearLayout>

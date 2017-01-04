@@ -11,15 +11,22 @@
 
         <LinearLayout
             android:id="@+id/goods_left_menu"
-            android:layout_width="200px"
+            android:layout_width="150px"
             android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:background="#EEEEEE"
+            android:orientation="vertical"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#d8d8d8"/>
 
         <LinearLayout
             android:id="@+id/goods_right_group"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical"/>
+
     </LinearLayout>
 
 </LinearLayout>

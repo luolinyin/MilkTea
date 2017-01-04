@@ -13,9 +13,9 @@ import com.xiaozhi.frame.mvp.v.toast.ToastView;
 import com.xiaozhi.frame.tool.listenner.NoDoubleClickListener;
 
 /**
+ * 商品详情
  * Created by Fynner on 2016/12/30.
  */
-
 public class GoodsDetailsActivity extends BaseActivity {
     private View view;
     private Context context;
@@ -67,6 +67,5 @@ public class GoodsDetailsActivity extends BaseActivity {
     public void initData() {
         setTitle("Goods_Details");
     }
-
 
 }
