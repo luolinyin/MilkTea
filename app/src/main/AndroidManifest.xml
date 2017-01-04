@@ -57,6 +57,10 @@
             android:name="com.xiaozhi.frame.main.activity.TransferActivity"
             android:launchMode="standard"
             android:screenOrientation="sensorLandscape"></activity> <!--交接页面-->
+        <activity
+            android:name="com.xiaozhi.frame.main.activity.TActivity"
+            android:launchMode="standard"
+            android:screenOrientation="sensorLandscape"></activity> <!--测试数据页面-->
 
         <activity
             android:name="com.xiaozhi.frame.main.activity.SignActivity"
