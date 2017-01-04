@@ -31,5 +31,7 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     testCompile 'junit:junit:4.12'
     compile files('libs/BASE64.jar')
-    compile files('libs/zxing.jar')  //扫码框架
+    compile files('libs/zxing.jar')
+    //扫码框架
+    compile 'com.android.support:recyclerview-v7:25.1.0'
 }

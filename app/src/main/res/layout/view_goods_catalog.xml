@@ -1,13 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/goods_right_catalog_name"
+    <TableRow
+        android:id="@+id/goods_right_tag_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="目录" />
-</LinearLayout>
+        android:visibility="gone"
+        android:layout_height="75px">
+
+        <TextView
+            android:id="@+id/goods_right_code"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#575757"
+            android:text="编号"/>
+
+        <TextView
+            android:id="@+id/goods_right_name"
+            android:layout_width="0px"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#575757"
+            android:text="商品"/>
+
+        <TableRow
+            android:id="@+id/goods_right_sale"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#575757"
+                android:drawableRight="@mipmap/goods_right_hand_default"
+                android:drawablePadding="8px"
+                android:text="销售累积"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/goods_right_stock"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#575757"
+                android:drawableRight="@mipmap/goods_right_hand_default"
+                android:drawablePadding="8px"
+                android:text="库存"/>
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/goods_right_type"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#575757"
+            android:text="类别"/>
+    </TableRow>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/home_swipe"
+        android:layout_below="@+id/goods_right_tag_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/goods_right_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/goods_right_recycle_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="65px"
+        android:layout_marginBottom="20px"
+        android:src="@mipmap/goods_right_switch_list"/>
+
+</RelativeLayout>
