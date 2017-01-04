@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.xiaozhi.frame.main.R;
 import com.xiaozhi.frame.main.view.MainGoalAttainmentView;
@@ -11,6 +12,8 @@ import com.xiaozhi.frame.main.view.MainSalesQuotaView;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
 import com.xiaozhi.frame.mvp.v.view.BaseView;
 import com.xiaozhi.frame.tool.listenner.NoDoubleClickListener;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends BaseActivity {
     private View view;
@@ -41,6 +44,8 @@ public class MainActivity extends BaseActivity {
     /*private LinearLayout main_report_form_table;
     private MainReportFormView mainReportFormView;*/
 
+    //测试界面
+    private TextView to_text_activity;
 
     @Override
     public View initView() {
@@ -63,7 +68,7 @@ public class MainActivity extends BaseActivity {
         main_goods = (LinearLayout) view.findViewById(R.id.main_goods);
         //会员
         main_member = (LinearLayout) view.findViewById(R.id.main_member);
-         //报表
+        //报表
         main_report_form = (LinearLayout) view.findViewById(R.id.main_report_form);
         //退货
         main_return_goods = (LinearLayout) view.findViewById(R.id.main_return_goods);
@@ -84,6 +89,9 @@ public class MainActivity extends BaseActivity {
         //目標达成报表
         main_goal_attainment_table = (LinearLayout) view.findViewById(R.id.main_goal_attainment_table);
         mainGoalAttainmentView = new MainGoalAttainmentView(context);
+
+        //测试界面
+        to_text_activity = (TextView) view.findViewById(R.id.to_text_activity);
 
         //报表
         /*main_report_form_table = (LinearLayout) view.findViewById(R.id.main_report_form_table);
@@ -106,6 +114,16 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initListenner() {
+
+        //测试界面
+        to_text_activity.setOnClickListener(new NoDoubleClickListener() {
+            @Override
+            public void onNoDoubleClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(context, TActivity.class);
+                startActivity(intent);
+            }
+        });
         //收银
         main_cashier.setOnClickListener(new NoDoubleClickListener() {
             @Override
@@ -195,10 +213,10 @@ public class MainActivity extends BaseActivity {
         main_goal_attainment_table.setOnClickListener(new NoDoubleClickListener() {
             @Override
             public void onNoDoubleClick(View v) {
-                if (currentAnalysisView!=mainGoalAttainmentView){
+                if (currentAnalysisView != mainGoalAttainmentView) {
                     main_analysis_diagram_view_group.removeAllViews();
                     main_analysis_diagram_view_group.addView(mainGoalAttainmentView.getRootView());
-                    currentAnalysisView=mainGoalAttainmentView;
+                    currentAnalysisView = mainGoalAttainmentView;
                 }
 
             }
@@ -248,11 +266,12 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    private  void toReportFormActivity(){
+    private void toReportFormActivity() {
 //        Intent intent = new Intent();
 //        intent.setClass(context, ReportFormActivity.class);
 //        startActivity(intent);
     }
+
     private void toCashierActivity() {
         Intent intent = new Intent();
         intent.setClass(context, CashierActivity.class);

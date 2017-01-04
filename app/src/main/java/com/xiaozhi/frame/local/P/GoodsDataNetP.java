@@ -51,6 +51,8 @@ public class GoodsDataNetP implements RequestCallBack {
         baseActivity.dismissReadDialog();
         switch (callBackAction) {
             case GoodsAction.GOODS_QUERY_ACTION:
+                goodsDatalocalManage.obtainNetGoodsDataFail(baseActivity,onGoodsDataLocalListenner);
+
                 break;
         }
     }

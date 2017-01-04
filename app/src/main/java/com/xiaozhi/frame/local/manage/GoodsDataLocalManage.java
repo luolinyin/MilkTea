@@ -83,8 +83,8 @@ public class GoodsDataLocalManage extends LocalDataManage {
 
         if (goodsDatas == null) {
             if (NetWork.isNetworkConnected(baseActivity)) {
-                GoodsDataNetP goodsDataNetP = new GoodsDataNetP(baseActivity, goodsDatalocalManage, onGoodsDataLocalListenner);
 
+                GoodsDataNetP goodsDataNetP = new GoodsDataNetP(baseActivity, goodsDatalocalManage, onGoodsDataLocalListenner);
                 goodsDataNetP.obtainNetGoodsData();
                 //有网络
                 /*这里操作先判断是否有请求缓存数据，如果有，先将缓存数据扔上服务端，服务端返回成功后，再进行同步商品数据*/
@@ -93,12 +93,13 @@ public class GoodsDataLocalManage extends LocalDataManage {
                 return;
             } else {
                 obtainLocalGoodsData();
+                if (onGoodsDataLocalListenner != null) {
+                    onGoodsDataLocalListenner.goodsDataLocalListenner(goodsDatas, LocalDataManage.GOODS_DATA);
+                }
             }
         }
 
-        if (onGoodsDataLocalListenner != null) {
-            onGoodsDataLocalListenner.goodsDataLocalListenner(goodsDatas, LocalDataManage.GOODS_DATA);
-        }
+
     }
 
 
@@ -136,6 +137,19 @@ public class GoodsDataLocalManage extends LocalDataManage {
             onGoodsDataLocalListenner.goodsDataLocalListenner(goodsDatas, LocalDataManage.GOODS_DATA);
         }
         saveGoodsDatas(baseActivity);//保存
+    }
+
+    /**
+     * 向服务端同步商品数据失败
+     *
+     * @param baseActivity
+     * @param onGoodsDataLocalListenner
+     */
+    public void obtainNetGoodsDataFail(BaseActivity baseActivity, OnGoodsDataLocalListenner onGoodsDataLocalListenner) {
+        obtainLocalGoodsData();
+        if (onGoodsDataLocalListenner != null) {
+            onGoodsDataLocalListenner.goodsDataLocalListenner(goodsDatas, LocalDataManage.GOODS_DATA);
+        }
     }
 
 
