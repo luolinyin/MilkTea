@@ -27,7 +27,7 @@
     </TableRow>
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/goods_"
+        android:id="@+id/goods_catalog_refresh"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
@@ -37,6 +37,7 @@
         android:layout_marginRight="90px">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/goods_catalog_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -50,16 +51,6 @@
         android:layout_marginBottom="30px">
 
         <Button
-            android:id="@+id/goods_catalog_return"
-            android:layout_width="150px"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30px"
-            android:background="@drawable/selector_goods_catalog_btn"
-            android:textSize="20px"
-            android:textColor="#000"
-            android:text="返回"/>
-
-        <Button
             android:id="@+id/goods_catalog_sort"
             android:layout_width="150px"
             android:layout_height="wrap_content"
@@ -67,7 +58,7 @@
             android:paddingLeft="30px"
             android:paddingRight="30px"
             android:drawableLeft="@mipmap/goods_catalog_sort"
-            android:background="@drawable/selector_goods_catalog_btn"
+            android:background="@drawable/selector_goods_catalog_sort"
             android:textSize="20px"
             android:textColor="#000"
             android:text="排序"/>
@@ -76,10 +67,12 @@
             android:id="@+id/goods_catalog_new"
             android:layout_width="150px"
             android:layout_height="wrap_content"
-            android:background="@drawable/selector_goods_catalog_new_btn"
+            android:background="@drawable/selector_goods_catalog_new"
             android:textSize="20px"
             android:textColor="#fff"
             android:textStyle="bold"
             android:text="+ 新建目录"/>
+
     </TableRow>
+
 </LinearLayout>

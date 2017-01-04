@@ -89,7 +89,6 @@
         android:id="@+id/goods_right_recycle_mode"
         android:layout_width="50px"
         android:layout_height="50px"
-        android:background="#fff"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="65px"

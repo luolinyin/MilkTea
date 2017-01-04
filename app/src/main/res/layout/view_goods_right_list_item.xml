@@ -85,12 +85,14 @@
         android:id="@+id/goods_right_item_stock"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/goods_right_item_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_weight="1"/>
 
 </LinearLayout>

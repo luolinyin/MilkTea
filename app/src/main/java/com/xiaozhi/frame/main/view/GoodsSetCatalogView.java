@@ -1,6 +1,8 @@
 package com.xiaozhi.frame.main.view;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,8 +14,14 @@ import com.xiaozhi.frame.mvp.v.view.BaseView;
  * 账户信息视图
  */
 public class GoodsSetCatalogView extends BaseView {
+
     private Context context;
+
     private View view;
+
+    private RecyclerView goodsCatalogRecycler;
+
+    private SwipeRefreshLayout goodsCatalogRefresh;
 
     public GoodsSetCatalogView(Context context) {
         super(context);
@@ -29,7 +37,8 @@ public class GoodsSetCatalogView extends BaseView {
 
     @Override
     public void initView() {
-
+        goodsCatalogRecycler = (RecyclerView) view.findViewById(R.id.goods_catalog_recycler);
+        goodsCatalogRefresh = (SwipeRefreshLayout) view.findViewById(R.id.goods_catalog_refresh);
     }
 
     @Override

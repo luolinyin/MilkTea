@@ -5,9 +5,9 @@ import com.xiaozhi.frame.mvp.v.view.BaseView;
 import java.io.Serializable;
 
 /**
+ *
  * Created by Fynner on 2016/12/31.
  */
-
 public class GoodsItemMenuData implements Serializable {
     private String menuName;
     private int Tag;

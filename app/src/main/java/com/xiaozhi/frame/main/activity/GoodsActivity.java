@@ -89,10 +89,11 @@ public class GoodsActivity extends BaseActivity {
         goods_right_group.addView(goodsRightView.getRootView());
 
         // 默认显示全部
-//        goodsMenuData.controlLeftViewVisible(catalogMainMenu);
-//        goodsRightView.changeRightView(catalogItem1.getRightView());
-//        currentLeftView = catalogItem1.getLeftView();
-//        currentRightView = catalogItem1.getRightView();
+        goodsMenuData.controlLeftViewVisible(catalogMainMenu);
+        GoodsItemMenuData catalogItem1 = catalogMainMenu.getItemMenus().get(0);
+        goodsRightView.changeRightView(catalogItem1.getRightView());
+        currentLeftView = catalogItem1.getLeftView();
+        currentRightView = catalogItem1.getRightView();
     }
 
     private void addMenuInfo() {

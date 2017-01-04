@@ -8,9 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ *
  * Created by Fynner on 2016/12/31.
  */
-
 public class GoodsMainMenuData implements Serializable {
     private ArrayList<GoodsItemMenuData> itemMenus;
     private String mainName;
@@ -32,7 +32,7 @@ public class GoodsMainMenuData implements Serializable {
         if (itemMenus != null) {
             this.itemMenus = itemMenus;
         } else {
-            this.itemMenus = new ArrayList<GoodsItemMenuData>();
+            this.itemMenus = new ArrayList<>();
         }
 
         for (int i = 0; i < this.itemMenus.size(); i++) {
