@@ -7,7 +7,8 @@
         android:id="@+id/goods_right_tag_bar"
         android:layout_width="match_parent"
         android:visibility="gone"
-        android:layout_height="75px">
+        android:background="@drawable/shape_goods_tag_bg"
+        android:layout_height="60px">
 
         <TextView
             android:id="@+id/goods_right_code"
@@ -35,6 +36,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/goods_right_sale_tv"
                 android:layout_width="wrap_content"
                 android:textColor="#575757"
                 android:drawableRight="@mipmap/goods_right_hand_default"
@@ -50,6 +52,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/goods_right_stock_tv"
                 android:layout_width="wrap_content"
                 android:textColor="#575757"
                 android:drawableRight="@mipmap/goods_right_hand_default"
@@ -84,9 +87,9 @@
 
     <ImageView
         android:id="@+id/goods_right_recycle_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10px"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:background="#fff"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="65px"

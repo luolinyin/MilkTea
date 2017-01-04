@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goods_right_item_group"
     android:layout_width="match_parent"
-    android:layout_height="100px"
+    android:layout_height="80px"
     android:gravity="center_vertical"
     android:background="@drawable/shape_goods_list_bg"
     android:orientation="horizontal">
@@ -17,31 +18,30 @@
         android:textSize="12px"
         android:text="123456"/>
 
-    <TableRow
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1.5">
 
         <ImageView
             android:id="@+id/goods_right_item_img"
-            android:layout_width="84px"
-            android:layout_height="84px"
+            android:layout_width="64px"
+            android:layout_height="64px"
             android:scaleType="centerCrop"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:src="@mipmap/ic_launcher"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:layout_marginLeft="10px"
-            android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/goods_right_item_img">
 
             <TextView
                 android:id="@+id/goods_right_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:textColor="#000"
                 android:textSize="12px"
                 android:text="商品名称"/>
@@ -51,12 +51,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15px"
+                android:maxLines="1"
+                android:layout_below="@id/goods_right_item_name"
                 android:textColor="#f00"
                 android:textSize="12px"
-                android:text="￥68.00/份"/>
-        </LinearLayout>
+                android:text="￥68.00"/>
 
-    </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px"
+                android:layout_below="@id/goods_right_item_name"
+                android:layout_toRightOf="@id/goods_right_item_price"
+                android:textColor="#555"
+                android:textSize="12px"
+                android:text="/份"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/goods_right_item_sale"

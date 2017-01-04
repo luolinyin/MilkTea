@@ -9,11 +9,13 @@ import com.xiaozhi.frame.main.R;
 import com.xiaozhi.frame.main.been.goodsbeen.GoodsItemMenuData;
 import com.xiaozhi.frame.main.been.goodsbeen.GoodsMainMenuData;
 import com.xiaozhi.frame.main.been.goodsbeen.GoodsMenuData;
+import com.xiaozhi.frame.main.p.GoodsActivityP;
 import com.xiaozhi.frame.main.view.GoodsCatalogView;
 import com.xiaozhi.frame.main.view.GoodsLeftItemMenuView;
 import com.xiaozhi.frame.main.view.GoodsLeftMainMenuView;
 import com.xiaozhi.frame.main.view.GoodsLeftMenuView;
 import com.xiaozhi.frame.main.view.GoodsRightView;
+import com.xiaozhi.frame.main.view.GoodsSetCatalogView;
 import com.xiaozhi.frame.main.view.GoodsSetDiscountView;
 import com.xiaozhi.frame.main.view.GoodsSetPracticeView;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
@@ -28,6 +30,9 @@ import java.util.ArrayList;
  * 开发思路 将左右两个View当成v层，将该activity当成c层，左右两个v对应创建两个p层，p层与对应m层进行数据交流，该页面采用mvvm模式构架
  */
 public class GoodsActivity extends BaseActivity {
+
+    private GoodsActivityP goodsActivityP;
+
     private View view;
     private Context context;
 
@@ -73,6 +78,8 @@ public class GoodsActivity extends BaseActivity {
         showSreach();
         addMenuInfo();
 
+        goodsActivityP = new GoodsActivityP(this);
+
         //设置左侧view数据
         goodsLeftMenuView = new GoodsLeftMenuView(context, goodsMenuData);
         goods_left_menu.addView(goodsLeftMenuView.getRootView());
@@ -98,7 +105,7 @@ public class GoodsActivity extends BaseActivity {
         menuDatas.add(catalogMainMenu);
 
         ArrayList<GoodsItemMenuData> setData = new ArrayList<>();
-        GoodsItemMenuData catalog = new GoodsItemMenuData("目录", new GoodsCatalogView(context), new GoodsLeftItemMenuView(context, "目录", leftItemMenuListenner));
+        GoodsItemMenuData catalog = new GoodsItemMenuData("目录", new GoodsSetCatalogView(context), new GoodsLeftItemMenuView(context, "目录", leftItemMenuListenner));
         GoodsItemMenuData practice = new GoodsItemMenuData("做法", new GoodsSetPracticeView(context), new GoodsLeftItemMenuView(context, "做法", leftItemMenuListenner));
         GoodsItemMenuData discount = new GoodsItemMenuData("折扣", new GoodsSetDiscountView(context), new GoodsLeftItemMenuView(context, "折扣", leftItemMenuListenner));
         setData.add(catalog);
@@ -128,11 +135,10 @@ public class GoodsActivity extends BaseActivity {
      * 主菜单监听
      */
     private GoodsLeftMainMenuView.OnLeftMainMenuListenner leftMainMenuListenner = new GoodsLeftMainMenuView.OnLeftMainMenuListenner() {
+
         @Override
         public void onMainGroupViewClick(BaseView mainMenuView) {
-
             for (GoodsMainMenuData mainMenuData : goodsMenuData.getLeftGoodsMainMenuDatas()) {
-
                 if (mainMenuData.getMainView() == mainMenuView) {
                     goodsMenuData.controlLeftViewVisible(mainMenuData);
                 }
@@ -144,6 +150,7 @@ public class GoodsActivity extends BaseActivity {
      * 子菜单监听
      */
     private GoodsLeftItemMenuView.OnLeftItemMenuListenner leftItemMenuListenner = new GoodsLeftItemMenuView.OnLeftItemMenuListenner() {
+
         @Override
         public void onItemGroupViewClick(BaseView itemMenuView) {
             if (itemMenuView == currentLeftView) {
@@ -153,7 +160,7 @@ public class GoodsActivity extends BaseActivity {
             for (GoodsMainMenuData mainMenuData : goodsMenuData.getLeftGoodsMainMenuDatas()) {
                 for (GoodsItemMenuData itemMenuData : mainMenuData.getItemMenus()) {
                     if (itemMenuData.getLeftView() == itemMenuView) {
-                        //当右边视图为目录的情况右侧视图不跳转界面仅改变数据,如果右侧视图不是目录，点击目录的视图的情况下，先跳转再改变数据
+                        // 当右边视图为目录的情况右侧视图不跳转界面仅改变数据,如果右侧视图不是目录，点击目录的视图的情况下，先跳转再改变数据
                         if (itemMenuData.getRightView() == goodsCatalogView) {
                             if (currentRightView != goodsCatalogView) {
                                 goodsRightView.changeRightView(itemMenuData.getRightView());
@@ -164,11 +171,9 @@ public class GoodsActivity extends BaseActivity {
                         }
                         currentLeftView = itemMenuView;
                         currentRightView = itemMenuData.getRightView();
-
                     }
                 }
             }
-
         }
     };
 }

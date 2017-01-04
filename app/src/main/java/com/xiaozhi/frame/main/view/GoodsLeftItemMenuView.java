@@ -35,7 +35,7 @@ public class GoodsLeftItemMenuView extends BaseView {
     @Override
     public View initGroupView() {
         view = View.inflate(context, R.layout.view_goods_left_item_menu, null);
-        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 75));
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 70));
         return view;
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.xiaozhi.frame.main.R;
+import com.xiaozhi.frame.main.activity.GoodsActivity;
 import com.xiaozhi.frame.tool.imageloader.LoaderImageNet;
 
 import java.util.ArrayList;
@@ -93,7 +94,15 @@ public class GoodsRightListAdapter extends RecyclerView.Adapter {
         goodsRightListHolder.goods_right_item_price.setText("68.00");
         // TODO 测试链接
         String testUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1483507275678&di=72b9d3d13c1551099a511f6ac8f91f1f&imgtype=0&src=http%3A%2F%2Fimages4.c-ctrip.com%2Ftarget%2Ffd%2Ftuangou%2Fg2%2FM07%2F38%2FC9%2FCghzf1Wtk6CANhFIAAD8EHlvu-k722_600_400_s.jpg";
-        loaderImageNet.loaderImage(testUrl, goodsRightListHolder.goods_right_item_img);//设置图片
+        loaderImageNet.loaderImage(testUrl, goodsRightListHolder.goods_right_item_img);// 设置图片
+
+        goodsRightListHolder.goods_right_item_group.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ((GoodsActivity)context).toGoodsDetailsActivity();
+            }
+        });
     }
 
     @Override
@@ -119,6 +128,8 @@ public class GoodsRightListAdapter extends RecyclerView.Adapter {
     }
 
     private class GoodsRightListHolder extends RecyclerView.ViewHolder {
+
+        View goods_right_item_group;
         ImageView goods_right_item_img;
         TextView goods_right_item_name;
         TextView goods_right_item_code;
@@ -127,7 +138,6 @@ public class GoodsRightListAdapter extends RecyclerView.Adapter {
         TextView goods_right_item_stock;
         TextView goods_right_item_type;
 
-
         GoodsRightListHolder(View itemView) {
             super(itemView);
             if (mode == LIST) {
@@ -135,6 +145,7 @@ public class GoodsRightListAdapter extends RecyclerView.Adapter {
                 goods_right_item_stock = (TextView) itemView.findViewById(R.id.goods_right_item_stock);
                 goods_right_item_type = (TextView) itemView.findViewById(R.id.goods_right_item_type);
             }
+            goods_right_item_group = itemView.findViewById(R.id.goods_right_item_group);
             goods_right_item_img = (ImageView) itemView.findViewById(R.id.goods_right_item_img);
             goods_right_item_name = (TextView) itemView.findViewById(R.id.goods_right_item_name);
             goods_right_item_code = (TextView) itemView.findViewById(R.id.goods_right_item_code);

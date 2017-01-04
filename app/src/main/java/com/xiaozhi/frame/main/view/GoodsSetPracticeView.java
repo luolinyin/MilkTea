@@ -11,7 +11,6 @@ import com.xiaozhi.frame.mvp.v.view.BaseView;
  * Created by Fynner on 2017/1/1.
  * 账户信息视图
  */
-
 public class GoodsSetPracticeView extends BaseView {
     private Context context;
     private View view;

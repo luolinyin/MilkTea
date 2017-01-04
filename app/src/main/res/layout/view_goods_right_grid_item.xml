@@ -6,6 +6,7 @@
     android:layout_height="300px">
 
     <LinearLayout
+        android:id="@+id/goods_right_item_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shape_goods_grid_bg"
