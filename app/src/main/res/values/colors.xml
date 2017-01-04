@@ -9,4 +9,10 @@
 
     <color name="color_BBBBBB">#BBBBBB</color>
 
+    <!--分割线-->
+    <color name="line">#eeeeee</color>
+
+    <!--下载图片的时候显示的默认背景颜色-->
+    <color name="load_default_color">#e9e9e9</color>
+
 </resources>
