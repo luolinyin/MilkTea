@@ -40,7 +40,10 @@
             android:name="com.xiaozhi.frame.main.activity.MenberActivity"
             android:launchMode="standard"
             android:screenOrientation="sensorLandscape"></activity> <!--会员页面-->
-
+        <activity
+            android:name="com.xiaozhi.frame.main.activity.ReportFormActivity"
+            android:launchMode="standard"
+            android:screenOrientation="sensorLandscape"></activity> <!--报表页面-->
         <activity
             android:name="com.xiaozhi.frame.main.activity.ReturnGoodsActivity"
             android:launchMode="standard"

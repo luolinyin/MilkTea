@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
     private LinearLayout main_cashier;//收银
     private LinearLayout main_goods;//商品
     private LinearLayout main_member;//会员
+    private LinearLayout main_report_form;//报表
     private LinearLayout main_return_goods;//退货
     private LinearLayout main_transfer;//交接
     private LinearLayout main_set_up;//设置
@@ -33,12 +34,13 @@ public class MainActivity extends BaseActivity {
     //销售报表
     private LinearLayout main_sales_quota_table;
     private MainSalesQuotaView mainSalesQuotaView;
+
     //目標報表
     private LinearLayout main_goal_attainment_table;
     private MainGoalAttainmentView mainGoalAttainmentView;
     //報表
-    private LinearLayout main_report_form_table;
-    private MainReportFormView mainReportFormView;
+    /*private LinearLayout main_report_form_table;
+    private MainReportFormView mainReportFormView;*/
 
 
     @Override
@@ -62,6 +64,8 @@ public class MainActivity extends BaseActivity {
         main_goods = (LinearLayout) view.findViewById(R.id.main_goods);
         //会员
         main_member = (LinearLayout) view.findViewById(R.id.main_member);
+         //报表
+        main_report_form = (LinearLayout) view.findViewById(R.id.main_report_form);
         //退货
         main_return_goods = (LinearLayout) view.findViewById(R.id.main_return_goods);
         //交接
@@ -83,8 +87,8 @@ public class MainActivity extends BaseActivity {
         mainGoalAttainmentView = new MainGoalAttainmentView(context);
 
         //报表
-        main_report_form_table = (LinearLayout) view.findViewById(R.id.main_report_form_table);
-        mainReportFormView = new MainReportFormView(context);
+        /*main_report_form_table = (LinearLayout) view.findViewById(R.id.main_report_form_table);
+        mainReportFormView = new MainReportFormView(context);*/
         return view;
 
     }
@@ -108,7 +112,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onNoDoubleClick(View v) {
                 toCashierActivity();
-
+                finish();
             }
         });
         //商品管理
@@ -129,6 +133,17 @@ public class MainActivity extends BaseActivity {
 
 
         });
+        //报表
+        main_report_form.setOnClickListener(new NoDoubleClickListener() {
+            @Override
+            public void onNoDoubleClick(View v) {
+                toReportFormActivity();
+                finish();
+            }
+
+
+        });
+
         //退款
         main_return_goods.setOnClickListener(new NoDoubleClickListener() {
             @Override
@@ -142,7 +157,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onNoDoubleClick(View v) {
                 toTransferActivity();
-                
+
             }
 
 
@@ -189,7 +204,7 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-        //报表
+       /* //报表
         main_report_form_table.setOnClickListener(new NoDoubleClickListener() {
             @Override
             public void onNoDoubleClick(View v) {
@@ -200,7 +215,7 @@ public class MainActivity extends BaseActivity {
                 }
 
             }
-        });
+        });*/
 
     }
 
@@ -234,6 +249,11 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    private  void toReportFormActivity(){
+        Intent intent = new Intent();
+        intent.setClass(context, ReportFormActivity.class);
+        startActivity(intent);
+    }
     private void toCashierActivity() {
         Intent intent = new Intent();
         intent.setClass(context, CashierActivity.class);
