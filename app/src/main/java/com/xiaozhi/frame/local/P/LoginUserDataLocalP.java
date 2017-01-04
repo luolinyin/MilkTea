@@ -58,6 +58,7 @@ public class LoginUserDataLocalP implements RequestCallBack {
                 czyData.flag = loginReturnData.flag;
                 czyData.czType = loginReturnData.zw;
                 czyData.realname = loginReturnData.realname;
+                czyData.czyPasswork = userData.czyDatas.get(0).czyPasswork;
                 netUserData.czyDatas.add(czyData);
             }
 
@@ -78,7 +79,7 @@ public class LoginUserDataLocalP implements RequestCallBack {
     @Override
     public void onCookieExpired() {
         Print.println("xiaozhi4");
-                baseActivity.dismissReadDialog();
+        baseActivity.dismissReadDialog();
 
 
     }
