@@ -20,12 +20,12 @@ public class ReadDialog extends BaseDialog {
     }
 
     @Override
-    protected View setDialogContentView() {
+    public View setDialogContentView() {
         return view = View.inflate(context, R.layout.dialog_read, null);
     }
 
     @Override
-    protected void initView() {
+    public void initView() {
         setDialogGravity(Gravity.CENTER);
         setCanceledOnTouchOutside(false);
 
@@ -33,7 +33,12 @@ public class ReadDialog extends BaseDialog {
     }
 
     @Override
-    protected void initListener() {
+    public void initData() {
+
+    }
+
+    @Override
+    public void initListener() {
 
     }
 }

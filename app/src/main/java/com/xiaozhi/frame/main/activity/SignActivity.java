@@ -7,11 +7,13 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
 import com.xiaozhi.frame.main.R;
 import com.xiaozhi.frame.main.p.SignActivityP;
+import com.xiaozhi.frame.mvp.v.toast.ToastView;
 import com.xiaozhi.frame.tool.listenner.NoDoubleClickListener;
 
 /**
@@ -21,10 +23,14 @@ public class SignActivity extends BaseActivity {
     private View view;
     private Context context;
 
-    private SignActivityP mSignActivityP;
+    private SignActivityP signActivityP;
+
+    private EditText sign_shop_id;
+    private EditText sign_czy_id;
+    private EditText sign_password;
 
     //登录
-    private TextView sign_sign;
+    private TextView sign_login;
 
     @Override
     public View initView() {
@@ -41,7 +47,12 @@ public class SignActivity extends BaseActivity {
             }
         }
 
-        sign_sign = (TextView) view.findViewById(R.id.sign_sign);
+        //登录
+        sign_login = (TextView) view.findViewById(R.id.sign_login);
+        sign_shop_id = (EditText) view.findViewById(R.id.sign_shop_id);
+        sign_czy_id = (EditText) view.findViewById(R.id.sign_czy_id);
+        sign_password = (EditText) view.findViewById(R.id.sign_password);
+
         return view;
     }
 
@@ -50,9 +61,7 @@ public class SignActivity extends BaseActivity {
         setTitle("登录");
         hideToHomeView();
 
-        mSignActivityP = new SignActivityP((BaseActivity) context);
-
-        mSignActivityP.setMindPw(true);
+        signActivityP = new SignActivityP(this);
 
 
     }
@@ -60,15 +69,33 @@ public class SignActivity extends BaseActivity {
     @Override
     public void initListenner() {
         //登录
-        sign_sign.setOnClickListener(new NoDoubleClickListener() {
+        sign_login.setOnClickListener(new NoDoubleClickListener() {
             @Override
             public void onNoDoubleClick(View v) {
-
-
+//                login();
                 toMainActivity();
             }
         });
 
+    }
+
+    private void login() {
+        if (sign_shop_id == null || sign_shop_id.getText() == null) {
+            new ToastView(context, "请填写店铺帐号").show();
+            return;
+        }
+
+        if (sign_czy_id == null || sign_czy_id.getText() == null) {
+            new ToastView(context, "请员工帐号").show();
+            return;
+        }
+
+        if (sign_password == null || sign_password.getText() == null) {
+            new ToastView(context, "请填写密码").show();
+            return;
+        }
+
+        signActivityP.login(sign_shop_id.getText().toString(),sign_czy_id.getText().toString(),sign_password.getText().toString());
     }
 
 
