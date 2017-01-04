@@ -34,6 +34,7 @@ public class GoodsCatalogView extends BaseView {
     private static final String MODE = "mode";
 
     private Context context;
+
     private View view;
 
     /**

@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 
 import com.xiaozhi.frame.main.R;
 import com.xiaozhi.frame.main.view.MainGoalAttainmentView;
-import com.xiaozhi.frame.main.view.MainReportFormView;
 import com.xiaozhi.frame.main.view.MainSalesQuotaView;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
 import com.xiaozhi.frame.mvp.v.view.BaseView;
@@ -250,9 +249,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private  void toReportFormActivity(){
-        Intent intent = new Intent();
-        intent.setClass(context, ReportFormActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent();
+//        intent.setClass(context, ReportFormActivity.class);
+//        startActivity(intent);
     }
     private void toCashierActivity() {
         Intent intent = new Intent();
