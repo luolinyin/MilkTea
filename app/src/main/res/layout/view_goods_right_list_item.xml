@@ -13,8 +13,10 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
+        android:padding="10px"
         android:gravity="center_horizontal"
         android:textColor="#000"
+        android:maxLines="1"
         android:textSize="12px"
         android:text="123456"/>
 
@@ -35,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
             android:layout_toRightOf="@id/goods_right_item_img">
 
             <TextView

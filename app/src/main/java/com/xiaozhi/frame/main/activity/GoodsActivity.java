@@ -87,6 +87,12 @@ public class GoodsActivity extends BaseActivity {
         //设置右侧view数据
         goodsRightView = new GoodsRightView(context);
         goods_right_group.addView(goodsRightView.getRootView());
+
+        // 默认显示全部
+//        goodsMenuData.controlLeftViewVisible(catalogMainMenu);
+//        goodsRightView.changeRightView(catalogItem1.getRightView());
+//        currentLeftView = catalogItem1.getLeftView();
+//        currentRightView = catalogItem1.getRightView();
     }
 
     private void addMenuInfo() {
@@ -129,7 +135,6 @@ public class GoodsActivity extends BaseActivity {
         intent.setClass(context, GoodsDetailsActivity.class);
         startActivity(intent);
     }
-
 
     /**
      * 主菜单监听
