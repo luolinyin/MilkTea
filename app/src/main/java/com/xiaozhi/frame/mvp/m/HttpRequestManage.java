@@ -7,6 +7,7 @@ import com.xiaozhi.frame.mvp.m.callbackmanage.HttpRequestCallBack;
 import com.xiaozhi.frame.mvp.m.threadmanage.DefaultThreadPool;
 import com.xiaozhi.frame.mvp.m.urlmanage.UrlData;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
+import com.xiaozhi.frame.tool.print.Print;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,13 @@ public class HttpRequestManage {
                                       ArrayList<HttpRequestParameter> params,
                                       HttpRequestCallBack requestCallback) {
         HttpRequeste requeste = new HttpRequeste(urlData, params, requestCallback);
+
         addRequest(requeste);
 
         return requeste;
     }
 
-    public  void remoRequest(HttpRequeste request){
+    public void remoRequest(HttpRequeste request) {
 
         requestesList.remove(request);
     }
@@ -55,17 +57,17 @@ public class HttpRequestManage {
     /**
      * 取消网络请求
      */
-    public  void cancelRequest() {
+    public void cancelRequest() {
         if ((requestesList != null) && (requestesList.size() > 0)) {
 
-            for ( HttpRequeste request : requestesList) {
+            for (HttpRequeste request : requestesList) {
 
                 if (request.getUriRequest() != null) {
                     try {
                         request.getUriRequest().abort();//终止请求
                         DefaultThreadPool.getInstance().removeTaskFromQueue(request);//删除请求任务线程
                         requestesList.remove(request);
-                        request.isCallBack=false;
+                        request.isCallBack = false;
                     } catch (final UnsupportedOperationException e) {
                         e.printStackTrace();
                     }

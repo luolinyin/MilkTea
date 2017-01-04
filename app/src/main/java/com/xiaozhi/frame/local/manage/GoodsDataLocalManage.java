@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.xiaozhi.frame.configuration.Configuration;
+import com.xiaozhi.frame.configuration.PathManage;
 import com.xiaozhi.frame.local.goodsdata.GoodsData;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
 import com.xiaozhi.frame.tool.file.FileManage;
@@ -44,11 +45,11 @@ public class GoodsDataLocalManage extends LocalDataManage {
             getGoodsDatas(context, new OnGoodsDataLocalListenner() {
                 @Override
                 public void goodsDataLocalListenner(ArrayList<GoodsData> goodsDatas, String action) {
-                    FileManage.saveObject(Configuration.GOODS_DATA_PHAT, goodsDatas);//路径需要加上店铺帐号
+                    FileManage.saveObject(PathManage.GOODS_DATA_PHAT, goodsDatas);//路径需要加上店铺帐号
                 }
             });
         } else {
-            FileManage.saveObject(Configuration.GOODS_DATA_PHAT, goodsDatas);//路径需要加上店铺帐号
+            FileManage.saveObject(PathManage.GOODS_DATA_PHAT, goodsDatas);//路径需要加上店铺帐号
 
         }
     }
@@ -106,7 +107,7 @@ public class GoodsDataLocalManage extends LocalDataManage {
      */
     private synchronized void obtainLocalGoodsData() {
         //无网络
-        Object object = FileManage.restoreObject(Configuration.GOODS_DATA_PHAT);//路径需要加上店铺帐号
+        Object object = FileManage.restoreObject(PathManage.GOODS_DATA_PHAT);//路径需要加上店铺帐号
         if (object != null) {
             goodsDatas = (ArrayList<GoodsData>) object;
 

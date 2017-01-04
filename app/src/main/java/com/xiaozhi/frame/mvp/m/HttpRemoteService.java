@@ -8,6 +8,7 @@ import com.xiaozhi.frame.mvp.m.urlmanage.UrlConfigureManage;
 import com.xiaozhi.frame.mvp.m.urlmanage.UrlData;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
 import com.xiaozhi.frame.mvp.v.fragment.BaseFragment;
+import com.xiaozhi.frame.tool.print.Print;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,7 @@ public class HttpRemoteService {
         RequestCallBackManage requestCallBackManage = new RequestCallBackManage(baseActivity, callBack, callBackAction);
         HttpRequeste requeste = baseActivity.getRequestManage().createRequest(urlData, parameters, requestCallBackManage);
         DefaultThreadPool.getInstance().execute(requeste);
+
     }
 
     public void invoke(BaseFragment baseFragment, String urlKey, ArrayList<HttpRequestParameter> parameters, RequestCallBack callBack, String callBackAction, boolean forceUpdate) {

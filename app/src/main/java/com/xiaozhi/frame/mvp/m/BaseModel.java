@@ -58,12 +58,9 @@ public abstract class BaseModel {
         if (parameters==null){
             parameters = new ArrayList<HttpRequestParameter>();
         }
-        parameters.add(new HttpRequestParameter("sessionUid",mSharedPreferencesUtil.getString(UserInfoMemory.USER_NEME)));
-        parameters.add(new HttpRequestParameter("shopid",mSharedPreferencesUtil.getString(UserInfoMemory.USER_NEME)));
-        parameters.add(new HttpRequestParameter("czy",mSharedPreferencesUtil.getString(UserInfoMemory.CZY_NAME)));
-        parameters.add(new HttpRequestParameter("sessionKey",mSharedPreferencesUtil.getString(UserInfoMemory.CZY_PW)));
-
-        Print.println(mSharedPreferencesUtil.getString(UserInfoMemory.CZY_PW));
+        parameters.add(new HttpRequestParameter("sessionUid",mSharedPreferencesUtil.getString(UserInfoMemory.CZY_ID)));
+        parameters.add(new HttpRequestParameter("shopid",mSharedPreferencesUtil.getString(UserInfoMemory.SHOP_ID)));
+        parameters.add(new HttpRequestParameter("sessionKey",mSharedPreferencesUtil.getString(UserInfoMemory.CZY_PASSWORD_KEY)));
 
         return parameters;
     }
