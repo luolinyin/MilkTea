@@ -2,6 +2,7 @@ package com.xiaozhi.frame.local.goodsdata;
 
 import com.xiaozhi.frame.main.been.goodsbeen.GoodsMenuData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  * unit	份
  */
 
-public class GoodsData {
+public class GoodsData  implements Serializable {
     //网络获取的数据
     public String bh; //货号
     public String dat;//商品创建时间

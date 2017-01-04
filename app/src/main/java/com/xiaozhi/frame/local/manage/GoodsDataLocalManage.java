@@ -6,6 +6,7 @@ import android.os.Handler;
 import com.xiaozhi.frame.configuration.Configuration;
 import com.xiaozhi.frame.configuration.PathManage;
 import com.xiaozhi.frame.local.P.GoodsDataNetP;
+import com.xiaozhi.frame.local.goodsdata.GoodsAllData;
 import com.xiaozhi.frame.local.goodsdata.GoodsData;
 import com.xiaozhi.frame.memory.UserInfoMemory;
 import com.xiaozhi.frame.mvp.v.activity.BaseActivity;
@@ -42,20 +43,32 @@ public class GoodsDataLocalManage extends LocalDataManage {
     }
 
     /**
-     * 保存商品数据
-     *
-     * @param context
+     * 无网络情况调用 获取本地商品数据
      */
-    public synchronized void saveGoodsDatas(BaseActivity baseActivity) {
+    private synchronized void obtainLocalGoodsData() {
+        //无网络
+        Object object = FileManage.restoreObject(PathManage.GOODS_DATA_PHAT + sharedPreferencesUtil.getString(UserInfoMemory.SHOP_ID));
+        if (object != null) {
+            goodsDatas = (ArrayList<GoodsData>) object;
+
+        } else {
+            goodsDatas = new ArrayList<GoodsData>();
+        }
+    }
+
+    /**
+     * 保存商品数据
+     */
+    public synchronized void saveGoodsDatas(final BaseActivity baseActivity) {
         if (goodsDatas == null) {
             getGoodsDatas(baseActivity, new OnGoodsDataLocalListenner() {
                 @Override
                 public void goodsDataLocalListenner(ArrayList<GoodsData> goodsDatas, String action) {
-                    FileManage.saveObject(PathManage.GOODS_DATA_PHAT, goodsDatas);//路径需要加上店铺帐号
+                    saveGoodsDatas(baseActivity);
                 }
             });
         } else {
-            FileManage.saveObject(PathManage.GOODS_DATA_PHAT+sharedPreferencesUtil.getString(UserInfoMemory.SHOP_ID), goodsDatas);//路径需要加上店铺帐号
+            FileManage.saveObject(PathManage.GOODS_DATA_PHAT + sharedPreferencesUtil.getString(UserInfoMemory.SHOP_ID), goodsDatas);//路径需要加上店铺帐号
 
         }
     }
@@ -70,12 +83,11 @@ public class GoodsDataLocalManage extends LocalDataManage {
 
         if (goodsDatas == null) {
             if (NetWork.isNetworkConnected(baseActivity)) {
-                GoodsDataNetP goodsDataNetP=new GoodsDataNetP(baseActivity,onGoodsDataLocalListenner);
+                GoodsDataNetP goodsDataNetP = new GoodsDataNetP(baseActivity, goodsDatalocalManage, onGoodsDataLocalListenner);
 
                 goodsDataNetP.obtainNetGoodsData();
                 //有网络
                 /*这里操作先判断是否有请求缓存数据，如果有，先将缓存数据扔上服务端，服务端返回成功后，再进行同步商品数据*/
-
 
 
                 return;
@@ -89,19 +101,6 @@ public class GoodsDataLocalManage extends LocalDataManage {
         }
     }
 
-    /**
-     * 无网络情况调用 获取本地商品数据
-     */
-    private synchronized void obtainLocalGoodsData() {
-        //无网络
-        Object object = FileManage.restoreObject(PathManage.GOODS_DATA_PHAT+sharedPreferencesUtil.getString(UserInfoMemory.SHOP_ID));
-        if (object != null) {
-            goodsDatas = (ArrayList<GoodsData>) object;
-
-        } else {
-            goodsDatas = new ArrayList<GoodsData>();
-        }
-    }
 
     public synchronized boolean addGoodsData(final BaseActivity baseActivity, final GoodsData goodsData) {
         if (goodsData == null) {
@@ -124,7 +123,20 @@ public class GoodsDataLocalManage extends LocalDataManage {
 
     }
 
-
+    /**
+     * 向服务端同步商品数据成功
+     *
+     * @param baseActivity
+     * @param goodsAllData              所有商品数据实体
+     * @param onGoodsDataLocalListenner
+     */
+    public void obtainNetGoodsDataSuccess(BaseActivity baseActivity, GoodsAllData goodsAllData, OnGoodsDataLocalListenner onGoodsDataLocalListenner) {
+        goodsDatas = goodsAllData.list;
+        if (onGoodsDataLocalListenner != null) {
+            onGoodsDataLocalListenner.goodsDataLocalListenner(goodsDatas, LocalDataManage.GOODS_DATA);
+        }
+        saveGoodsDatas(baseActivity);//保存
+    }
 
 
     /**

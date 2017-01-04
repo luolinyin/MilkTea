@@ -5,6 +5,6 @@ package com.xiaozhi.frame.action;
  */
 
 public class GoodsAction {
-    public static final String LOGIN_ACTION="query"; //获取所有商品操作
+    public static final String GOODS_QUERY_ACTION="query"; //获取所有商品操作
 
 }
