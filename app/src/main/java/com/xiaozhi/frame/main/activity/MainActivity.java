@@ -267,9 +267,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void toReportFormActivity() {
-//        Intent intent = new Intent();
-//        intent.setClass(context, ReportFormActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent();
+        intent.setClass(context, ReportFormActivity.class);
+        startActivity(intent);
     }
 
     private void toCashierActivity() {

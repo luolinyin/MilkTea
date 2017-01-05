@@ -85,20 +85,32 @@ public class SetActivity extends BaseActivity {
         SetItemMenuData staff = new SetItemMenuData("员工权限", new SetStaffView(context), new SetLeftItemMenuView(context, "员工权限", leftItemMenuListenner));
         shopDatas.add(information);
         shopDatas.add(staff);
-        SetMainMenuData shopMenu = new SetMainMenuData("店铺", new SetLeftMainMenuView(context, "店铺", leftMainMenuListenner), shopDatas);
+        SetMainMenuData shopMenu = new SetMainMenuData("店铺设置", new SetLeftMainMenuView(context, "店铺设置", leftMainMenuListenner), shopDatas);
         menuDatas.add(shopMenu);
 
+        ArrayList<SetItemMenuData> deviceConnDatas = new ArrayList<SetItemMenuData>();
+        SetMainMenuData deviceConnMenu = new SetMainMenuData("设备连接", new SetLeftMainMenuView(context, "设备连接", leftMainMenuListenner), deviceConnDatas);
+        menuDatas.add(deviceConnMenu);
+
         ArrayList<SetItemMenuData> setData = new ArrayList<SetItemMenuData>();
-        SetItemMenuData connect = new SetItemMenuData("设备连接", new SetConnectView(context), new SetLeftItemMenuView(context, "设备连接", leftItemMenuListenner));
-        SetItemMenuData ticket = new SetItemMenuData("小票设置", new SetTickeyView(context), new SetLeftItemMenuView(context, "小票设置", leftItemMenuListenner));
-        SetItemMenuData payment = new SetItemMenuData("支付方式", new SetPaymentView(context), new SetLeftItemMenuView(context, "支付方式", leftItemMenuListenner));
-        SetItemMenuData software = new SetItemMenuData("软件下载", new SetSoftwareView(context), new SetLeftItemMenuView(context, "软件下载", leftItemMenuListenner));
-        setData.add(connect);
-        setData.add(ticket);
-        setData.add(payment);
-        setData.add(software);
-        SetMainMenuData setMenu = new SetMainMenuData("设置", new SetLeftMainMenuView(context, "设置", leftMainMenuListenner), setData);
+        SetItemMenuData printSetup = new SetItemMenuData("打印设置", new SetConnectView(context), new SetLeftItemMenuView(context, "打印设置", leftItemMenuListenner));
+        SetItemMenuData cashPrinter = new SetItemMenuData("收银小票", new SetTickeyView(context), new SetLeftItemMenuView(context, "收银小票", leftItemMenuListenner));
+        SetItemMenuData kitchenPrinter = new SetItemMenuData("厨房小票", new SetPaymentView(context), new SetLeftItemMenuView(context, "厨房小票", leftItemMenuListenner));
+        SetItemMenuData labelPrinter = new SetItemMenuData("标签/条码", new SetSoftwareView(context), new SetLeftItemMenuView(context, "标签/条码", leftItemMenuListenner));
+        setData.add(printSetup);
+        setData.add(cashPrinter);
+        setData.add(kitchenPrinter);
+        setData.add(labelPrinter);
+        SetMainMenuData setMenu = new SetMainMenuData("小票设置", new SetLeftMainMenuView(context, "小票设置", leftMainMenuListenner), setData);
         menuDatas.add(setMenu);
+
+        ArrayList<SetItemMenuData> paymentDatas = new ArrayList<SetItemMenuData>();
+        SetMainMenuData paymentMenu = new SetMainMenuData("支付方式", new SetLeftMainMenuView(context, "支付方式", leftMainMenuListenner), paymentDatas);
+        menuDatas.add(paymentMenu);
+
+        ArrayList<SetItemMenuData> softwareDownloadDatas = new ArrayList<SetItemMenuData>();
+        SetMainMenuData softwareDownloadMenu = new SetMainMenuData("软件下载", new SetLeftMainMenuView(context, "软件下载", leftMainMenuListenner), softwareDownloadDatas);
+        menuDatas.add(softwareDownloadMenu);
 
         setMenuData = new SetMenuData(menuDatas);
     }
