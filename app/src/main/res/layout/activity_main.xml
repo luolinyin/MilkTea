@@ -263,13 +263,6 @@
                     android:src="@mipmap/main_back_icon" />
 
                 <TextView
-                    android:text="
-                    android:layout_weight=&quot;2&quot;"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2" />
-
-                <TextView
                     style="@style/text_5E5E5E_24"
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
